@@ -1,15 +1,29 @@
 
 import React, { useState } from 'react'
+import Taro from '@tarojs/taro'
 import { AtTabBar } from 'taro-ui'
-import '../tabBar.scss'
+import './tabBar.scss'
 
 
 
-const TabBar = () => {
-  const [current, setCurrent] = useState(0)
+const TabBar = (props) => {
+  // console.log(props.page)
+  const { value } = props
+  const [current, setCurrent] = useState(value)
 
   const handleClick = (value) => {
     setCurrent(value)
+    console.log(value, 'value')
+    switch (value) {
+      case 0:
+        return Taro.redirectTo({
+          url: '/pages/home/home'
+        })
+      case 1:
+        return Taro.redirectTo({
+          url: '/pages/search/search'
+        })
+    }
   }
   return (
     <AtTabBar
