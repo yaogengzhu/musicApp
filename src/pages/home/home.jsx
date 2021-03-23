@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 // import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { AtCard } from "taro-ui"
+import { View, Image } from '@tarojs/components'
+import shouye from '@/assets/images/shouye.svg'
 import fetch from '../../api/index'
-import TabBar from '../../component/tabBar/tabBar'
-import './home.scss'
+import './home.modules.scss'
 
 
 export default class Index extends Component {
@@ -31,7 +30,7 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <View> 首页 </View>
-        <TabBar value={0} />
+        <Image src={shouye}></Image>
       </View>
     )
   }
