@@ -1,0 +1,13 @@
+.person {
+  .at-list__item::after {
+    right: 12px !important;
+    left: 12px !important;
+  }
+
+  .avatar {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
