@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Taro from '@tarojs/taro'
-import { View, Image, Text, ScrollView } from '@tarojs/components'
+import { View, Image, ScrollView } from '@tarojs/components'
 import { AtCard } from "taro-ui"
 import fetch from '@/api'
 
@@ -61,6 +61,7 @@ class Search extends Component {
   render() {
     const { imgList, hasMore } = this.state
     if (!imgList) return null
+    const imgs = imgList.map(item => item.imageUrl)
 
     return (
       <View>
@@ -73,7 +74,8 @@ class Search extends Component {
                   title={'图片尺寸 - ' + item.imageSize}
                   onClick={() => {
                     Taro.previewImage({
-                      urls: [item.imageUrl]
+                      urls: imgs,
+                      current: item.imageUrl
                     })
                   }}
                 >
@@ -81,7 +83,8 @@ class Search extends Component {
                     <Image
                       mode='aspectFill'
                       lazyLoad
-                      src={item.imageUrl} style={{ objectFit: 'cover' }}></Image>
+                      src={item.imageUrl} style={{ objectFit: 'cover' }}
+                    />
                   </View>
                 </AtCard>
               </View>
