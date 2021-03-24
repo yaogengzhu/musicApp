@@ -13,11 +13,11 @@ export default {
     }, {
       "pagePath": "pages/search/search",
       "text": "美女图片",
-      "iconPath": "./assets/images/search.png",
-      "selectedIconPath": "./assets/images/selectSearch.png"
+      "iconPath": "./assets/images/img.png",
+      "selectedIconPath": "./assets/images/selectImg.png"
     }, {
       "pagePath": "pages/person/person",
-      "text": "个人中心",
+      "text": "我的",
       "iconPath": "./assets/images/person.png",
       "selectedIconPath": "./assets/images/selectPerson.png"
     }],
