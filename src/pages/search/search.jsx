@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Taro from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
 import { AtCard } from "taro-ui"
 import fetch from '@/api'
@@ -68,6 +69,11 @@ class Search extends Component {
             <View key={index} style={{ marginBottom: '10px' }}>
               <AtCard
                 title={'图片尺寸' + item.imageSize}
+                onClick={() => {
+                  Taro.previewImage({
+                    urls: [item.imageUrl]
+                  })
+                }}
               >
                 <Image src={item.imageUrl} style={{ objectFit: 'cover' }}></Image>
               </AtCard>
