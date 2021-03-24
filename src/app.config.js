@@ -7,12 +7,12 @@ export default {
   tabBar: {
     "list": [{
       "pagePath": "pages/home/home",
-      "text": "首页",
+      "text": "搞笑首页",
       "iconPath": "./assets/images/shouye.png",
       "selectedIconPath": "./assets/images/selectShouye.png"
     }, {
       "pagePath": "pages/search/search",
-      "text": "搜索",
+      "text": "美女图片",
       "iconPath": "./assets/images/search.png",
       "selectedIconPath": "./assets/images/selectSearch.png"
     }, {
