@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 // import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import { AtCard } from "taro-ui"
 
-import fetch from '../../api/index'
+import { AtCard } from "taro-ui"
+import fetch from '@/api/index'
 import './home.scss'
 
 
@@ -83,8 +83,8 @@ export default class Index extends Component {
         {
           list.length > 0 &&
           (hasMore
-            ? <Text className='more'>下拉加载更多</Text>
-            : <Text className='more'>没有更多了</Text>)
+            ? <View style={{ margin: '5px 0 ', width: '100%', fontSize: '12px', textAlign: 'center', color: '#666' }}>上拉加载更多</View>
+            : <View style={{ margin: '5px 0 ', width: '100%', fontSize: '12px', textAlign: 'center', color: '#666' }}>没有更多了</View>)
         }
 
       </View>

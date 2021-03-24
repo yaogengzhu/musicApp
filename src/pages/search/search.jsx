@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Taro from '@tarojs/taro'
-import { View, Image, Text } from '@tarojs/components'
+import { View, Image, Text, ScrollView } from '@tarojs/components'
 import { AtCard } from "taro-ui"
 import fetch from '@/api'
 
@@ -64,28 +64,35 @@ class Search extends Component {
 
     return (
       <View>
-        {
-          imgList.map((item, index) => (
-            <View key={index} style={{ marginBottom: '10px' }}>
-              <AtCard
-                title={'图片尺寸' + item.imageSize}
-                onClick={() => {
-                  Taro.previewImage({
-                    urls: [item.imageUrl]
-                  })
-                }}
-              >
-                <Image src={item.imageUrl} style={{ objectFit: 'cover' }}></Image>
-              </AtCard>
-
-            </View>
-          ))
-        }
+        <ScrollView>
+          {
+            imgList.map((item, index) => (
+              <View key={index} style={{ marginBottom: '10px' }}>
+                <AtCard
+                  customStyle={{ display: 'felx', justifyContent: 'center' }}
+                  title={'图片尺寸 - ' + item.imageSize}
+                  onClick={() => {
+                    Taro.previewImage({
+                      urls: [item.imageUrl]
+                    })
+                  }}
+                >
+                  <View style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', overflow: 'hidden' }}>
+                    <Image
+                      mode='aspectFill'
+                      lazyLoad
+                      src={item.imageUrl} style={{ objectFit: 'cover' }}></Image>
+                  </View>
+                </AtCard>
+              </View>
+            ))
+          }
+        </ScrollView>
         {
           imgList.length > 0 &&
           (hasMore
-            ? <Text style={{ margin: '10px 0 ', width: '100%', fontSize: '16px', textAlign: 'center' }}>下拉加载更多</Text>
-            : <Text style={{ margin: '10px 0 ', width: '100%', fontSize: '16px', textAlign: 'center' }}>没有更多了</Text>)
+            ? <View style={{ margin: '5px 0 ', width: '100%', fontSize: '12px', textAlign: 'center', color: '#666' }}>上拉加载更多</View>
+            : <View style={{ margin: '5px 0 ', width: '100%', fontSize: '12px', textAlign: 'center', color: '#666' }}>没有更多了</View>)
         }
       </View>
     )
