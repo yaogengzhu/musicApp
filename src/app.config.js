@@ -7,17 +7,17 @@ export default {
   tabBar: {
     "list": [{
       "pagePath": "pages/home/home",
-      "text": "首页",
+      "text": "搞笑首页",
       "iconPath": "./assets/images/shouye.png",
       "selectedIconPath": "./assets/images/selectShouye.png"
     }, {
       "pagePath": "pages/search/search",
-      "text": "搜索",
-      "iconPath": "./assets/images/search.png",
-      "selectedIconPath": "./assets/images/selectSearch.png"
+      "text": "美女图片",
+      "iconPath": "./assets/images/img.png",
+      "selectedIconPath": "./assets/images/selectImg.png"
     }, {
       "pagePath": "pages/person/person",
-      "text": "个人中心",
+      "text": "我的",
       "iconPath": "./assets/images/person.png",
       "selectedIconPath": "./assets/images/selectPerson.png"
     }],
