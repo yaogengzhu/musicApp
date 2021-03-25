@@ -32,7 +32,7 @@ class Fetch {
         },
         method: option.mehtods || 'GET'
       }).then(res => {
-        return resolve(res)
+        return resolve(res.data)
       }).catch(err => {
         return reject(err)
       })
