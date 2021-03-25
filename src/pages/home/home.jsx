@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import Taro from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
 import { AtCard } from "taro-ui"
@@ -13,11 +13,17 @@ export default class Index extends Component {
     this.state = {
       list: [],
       page: 1,
-      hasMore: false
+      hasMore: false,
+      isLogin: false,
     }
 
   }
   componentDidMount() {
+    if (!this.state.isLogin) {
+      Taro.navigateTo({
+        url: '/pages/login/login'
+      })
+    }
     this.getList()
   }
 

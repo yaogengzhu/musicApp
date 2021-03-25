@@ -2,7 +2,8 @@ export default {
   pages: [
     'pages/home/home',
     'pages/search/search',
-    'pages/person/person'
+    'pages/person/person',
+    'pages/login/login'
   ],
   tabBar: {
     "list": [{
