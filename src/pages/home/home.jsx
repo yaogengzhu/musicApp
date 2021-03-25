@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-// import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Swiper, SwiperItem, Image } from '@tarojs/components'
 
-import { AtCard } from "taro-ui"
 import fetch from '@/api/index'
 import './home.scss'
 
@@ -11,82 +9,55 @@ export default class Index extends Component {
   constructor() {
     super(...arguments)
     this.state = {
-      list: [],
-      page: 1,
-      hasMore: false
+      bannerList: []
     }
 
   }
   componentDidMount() {
-    this.getList()
+    this.getBanner()
   }
 
-  getList() {
-    const { page, list } = this.state
-    fetch.get({
-      url: '/api/jokes/list',
+  getBanner() {
+    fetch.$fetch({
+      url: '/banner',
       params: {
-        page: page
+        type: 2
       }
     }).then(res => {
-      const data = res.data.data
-      if (page === 1) {
-        this.setState({
-          list: data.list,
-          hasMore: data.totalPage > page
-        })
-      } else {
-        this.setState({
-          list: list.concat(data.list),
-          hasMore: data.totalPage > page
-        })
-      }
-
+      console.log(res)
+      this.setState({
+        bannerList: res.banners
+      })
     })
   }
 
-  onPullDownRefresh() {
-    this.getList()
-  }
-
-  onReachBottom() {
-    const { page, hasMore } = this.state
-    if (hasMore) {
-      this.setState({
-        page: page + 1
-      }, () => {
-        this.getList()
-      })
-    }
-  }
-
   render() {
-    const { list, hasMore } = this.state
-    if (!list) return null
+    const { bannerList } = this.state
+    if (!bannerList) return null
+
     return (
       <View className='index'>
-        {
-          list.map((item, index) => (
-            <View
-              key={index}
-              style={{ marginBottom: '10px' }}
-            >
-              <AtCard
-                title={item.updateTime}
-
+        <Swiper
+          className='test-h'
+          indicatorColor='#999'
+          indicatorActiveColor='#333'
+          circular
+          indicatorDots
+          autoplay
+        >
+          {
+            bannerList.map(item => (
+              <SwiperItem
+                key={item.targetId}
               >
-                {item.content}
-              </AtCard>
-            </View>
-          ))
-        }
-        {
-          list.length > 0 &&
-          (hasMore
-            ? <View style={{ margin: '5px 0 ', width: '100%', fontSize: '12px', textAlign: 'center', color: '#666' }}>上拉加载更多</View>
-            : <View style={{ margin: '5px 0 ', width: '100%', fontSize: '12px', textAlign: 'center', color: '#666' }}>没有更多了</View>)
-        }
+                <View className='imgBox'>
+                  <Image src={item.pic} className='banner'></Image>
+                </View>
+              </SwiperItem>
+            ))
+          }
 
+        </Swiper>
       </View>
     )
   }

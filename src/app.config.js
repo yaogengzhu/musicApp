@@ -2,11 +2,18 @@ export default {
   pages: [
     'pages/home/home',
     'pages/search/search',
-    'pages/person/person'
+    'pages/person/person',
+    'pages/login/login',
+    'pages/funny/funny'
   ],
   tabBar: {
     "list": [{
       "pagePath": "pages/home/home",
+      "text": "音乐",
+      "iconPath": "./assets/images/shouye.png",
+      "selectedIconPath": "./assets/images/selectShouye.png"
+    }, {
+      "pagePath": "pages/funny/funny",
       "text": "搞笑首页",
       "iconPath": "./assets/images/shouye.png",
       "selectedIconPath": "./assets/images/selectShouye.png"
