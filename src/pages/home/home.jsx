@@ -31,14 +31,6 @@ export default class Index extends Component {
     })
   }
 
-  onPullDownRefresh() {
-
-  }
-
-  onReachBottom() {
-
-  }
-
   render() {
     const { bannerList } = this.state
     if (!bannerList) return null
