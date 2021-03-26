@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { View, Swiper, SwiperItem, Image } from '@tarojs/components'
+import { View, Swiper, SwiperItem, Image, Button } from '@tarojs/components'
 
 import fetch from '@/api/index'
+import store from '@/stroe/index'
 import './home.scss'
 
 
@@ -15,6 +16,7 @@ export default class Index extends Component {
   }
   componentDidMount() {
     this.getBanner()
+    console.log(store)
   }
 
   getBanner() {
@@ -58,6 +60,14 @@ export default class Index extends Component {
           }
 
         </Swiper>
+        <View>{store.getState()}</View>
+        <Button
+          onClick={() => {
+            store.dispatch({
+              type: 'INCREMENT'
+            })
+          }}
+        >按钮</Button>
       </View>
     )
   }
