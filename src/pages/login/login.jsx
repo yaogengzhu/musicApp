@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtButton, AtInput } from 'taro-ui'
+import { connect } from 'react-redux'
 import fetch from '@/api/index'
 
 import './login.scss'
@@ -10,20 +11,26 @@ const Login = () => {
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (phone && password) {
-      loign()
+      try {
+        const res = await loign()
+        Taro.setStorageSync('token', res.token)
+        Taro.setStorageSync('cookie', res.cookie)
+      } catch (e) {
+        console.log(e, 'e')
+      }
     }
   }
 
   const loign = () => {
-    fetch.$fetch({
+    return fetch.music({
       url: '/login/cellphone',
       params: {
         phone,
         password
       }
-    }).then(() => {
+    }).then((res) => {
       Taro.showToast({
         title: '登陆成功',
         icon: 'success',
@@ -32,9 +39,12 @@ const Login = () => {
           Taro.navigateBack()
         }
       })
-
+      return res
     })
   }
+
+  useEffect(() => {
+  }, [])
 
   return (
     <View className='login'>
@@ -70,4 +80,6 @@ const Login = () => {
   )
 }
 
-export default Login
+export default connect((state) => ({
+  ...state.auth
+}))(Login)

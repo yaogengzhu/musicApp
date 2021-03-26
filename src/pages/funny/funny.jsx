@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Taro from '@tarojs/taro'
+// import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import { AtCard } from "taro-ui"
@@ -23,7 +23,7 @@ export default class Funy extends Component {
 
   getList() {
     const { page, list } = this.state
-    fetch.get({
+    fetch.joke({
       url: '/api/jokes/list',
       params: {
         page: page

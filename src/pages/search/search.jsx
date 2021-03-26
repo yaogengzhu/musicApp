@@ -20,7 +20,7 @@ class Search extends Component {
 
   getImgList() {
     const { page, imgList } = this.state
-    fetch.get({
+    fetch.joke({
       url: '/api/image/girl/list',
       params: {
         page: page

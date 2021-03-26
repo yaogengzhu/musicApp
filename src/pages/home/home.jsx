@@ -1,36 +1,47 @@
 import React, { Component } from 'react'
 import { View, Swiper, SwiperItem, Image, Button } from '@tarojs/components'
+import { connect } from 'react-redux'
+import { getUserInfo } from '@/api/user'
+import { getBanner } from '@/api/common'
 
-import fetch from '@/api/index'
-import store from '@/stroe/index'
 import './home.scss'
 
-
-export default class Index extends Component {
-  constructor() {
-    super(...arguments)
+class Home extends Component {
+  constructor(props) {
+    super(props)
     this.state = {
-      bannerList: []
+      bannerList: [],
     }
+
 
   }
   componentDidMount() {
     this.getBanner()
-    console.log(store)
+    this.getUserInfo1()
   }
 
-  getBanner() {
-    fetch.$fetch({
-      url: '/banner',
-      params: {
-        type: 2
-      }
-    }).then(res => {
-      console.log(res)
+  componentDidShow() {
+
+  }
+
+  async getBanner() {
+    try {
+      const result = await getBanner()
       this.setState({
-        bannerList: res.banners
+        bannerList: result.banners
       })
-    })
+    } catch (e) {
+      console.log(e, 'e')
+    }
+  }
+
+  async getUserInfo1() {
+    try {
+      const result = await getUserInfo()
+      console.log(result, '---')
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   render() {
@@ -60,15 +71,21 @@ export default class Index extends Component {
           }
 
         </Swiper>
-        <View>{store.getState()}</View>
+        <View>2</View>
         <Button
           onClick={() => {
-            store.dispatch({
-              type: 'INCREMENT'
-            })
+            // store.dispatch({
+            //   type: 'INCREMENT'
+            // })
           }}
         >按钮</Button>
       </View>
     )
   }
 }
+
+
+export default connect((state) => ({
+  ...state.auth,
+  ...state.user
+}))(Home)
