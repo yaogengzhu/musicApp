@@ -2,10 +2,10 @@
 import Taro from '@tarojs/taro'
 class Fetch {
   get(option) {
-    return new Promise((resolve,reject) => {
+    return new Promise((resolve, reject) => {
       Taro.request({
         url: 'https://www.mxnzp.com' + option.url,
-        data: Object.assign(option.params || {},{
+        data: Object.assign(option.params || {}, {
           app_id: 'nvco3nivorqxqwex',
           app_secret: 'aEREREpQVWNTQkgyUjhoa0tBSEhYdz09'
         }),
@@ -22,10 +22,10 @@ class Fetch {
   }
 
   $fetch(option) {
-    return new Promise((resolve,reject) => {
+    return new Promise((resolve, reject) => {
       Taro.request({
         url: 'https://yaogeng.top' + option.url,
-        data: Object.assign(option.params || {},{
+        data: Object.assign(option.params || {}, {
         }),
         header: {
           'content-type': 'application/json' // 默认值

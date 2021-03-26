@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
 import { View, Swiper, SwiperItem, Image, Button } from '@tarojs/components'
+import { connect } from 'react-redux'
 
 import fetch from '@/api/index'
-import store from '@/stroe/index'
+import auth from '@/api/auth'
+
 import './home.scss'
 
-
-export default class Index extends Component {
-  constructor() {
-    super(...arguments)
+class Home extends Component {
+  constructor(props) {
+    super(props)
     this.state = {
       bannerList: []
     }
 
+
   }
   componentDidMount() {
     this.getBanner()
-    console.log(store)
+  }
+
+  componentDidShow() {
+    console.log(auth, '--')
+    auth.checkoutLogin()
   }
 
   getBanner() {
@@ -39,7 +45,7 @@ export default class Index extends Component {
 
     return (
       <View className='index'>
-        <Swiper
+        {/* <Swiper
           className='test-h'
           indicatorColor='#999'
           indicatorActiveColor='#333'
@@ -59,16 +65,21 @@ export default class Index extends Component {
             ))
           }
 
-        </Swiper>
-        <View>{store.getState()}</View>
+        </Swiper> */}
+        <View>2</View>
         <Button
           onClick={() => {
-            store.dispatch({
-              type: 'INCREMENT'
-            })
+            // store.dispatch({
+            //   type: 'INCREMENT'
+            // })
           }}
         >按钮</Button>
       </View>
     )
   }
 }
+
+
+export default connect((state) => ({
+  ...state.auth
+}))(Home)
