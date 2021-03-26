@@ -3,12 +3,11 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtButton, AtInput } from 'taro-ui'
 import { connect } from 'react-redux'
-import { LOGIN } from '@/stroe/actionType'
 import fetch from '@/api/index'
 
 import './login.scss'
 
-const Login = (props) => {
+const Login = () => {
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
 
@@ -17,6 +16,7 @@ const Login = (props) => {
       try {
         const res = await loign()
         Taro.setStorageSync('token', res.token)
+        Taro.setStorageSync('cookie', res.cookie)
       } catch (e) {
         console.log(e, 'e')
       }
@@ -24,7 +24,7 @@ const Login = (props) => {
   }
 
   const loign = () => {
-    return fetch.$fetch({
+    return fetch.music({
       url: '/login/cellphone',
       params: {
         phone,
@@ -44,8 +44,6 @@ const Login = (props) => {
   }
 
   useEffect(() => {
-    console.log(props)
-    console.log(LOGIN)
   }, [])
 
   return (
