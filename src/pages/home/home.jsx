@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Swiper, SwiperItem, Image, ScrollView, Text } from '@tarojs/components'
+import { View, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components'
 import { connect } from 'react-redux'
 import { getUserInfo } from '@/api/user'
 import { getBanner, getPersonalized, getHomePageIcon } from '@/api/common'
@@ -94,7 +94,8 @@ class Home extends Component {
                     <Image
                       lazyLoad
                       src={item.pic}
-                      className='banner'></Image>
+                      className='banner'
+                    />
                   </View>
                 </SwiperItem>
               ))
