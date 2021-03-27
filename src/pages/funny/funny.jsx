@@ -15,8 +15,8 @@ export default class Funy extends Component {
       page: 1,
       hasMore: false,
     }
-
   }
+
   componentDidMount() {
     this.getList()
   }
