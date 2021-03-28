@@ -4,9 +4,9 @@ import Taro from '@tarojs/taro'
 class Fetch {
   music(option) {
     return new Promise((resolve, reject) => {
-      Taro.showLoading({
-        title: '加载中'
-      })
+      // Taro.showLoading({
+      //   title: '加载中'
+      // })
       Taro.request({
         url: 'https://yaogeng.top' + option.url,
         data: Object.assign(option.params || {}, {
@@ -17,11 +17,11 @@ class Fetch {
         },
         method: option.mehtods || 'GET'
       }).then(res => {
-        Taro.hideLoading()
         return resolve(res.data)
       }).catch(err => {
-        Taro.hideLoading()
         return reject(err)
+      }).finally(() => {
+        // Taro.hideLoading()
       })
     })
   }
