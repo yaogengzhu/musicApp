@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import Taro from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components'
 import { connect } from 'react-redux'
-import { getUserInfo } from '@/api/user'
 import { getBanner, getPersonalized, getHomePageIcon } from '@/api/common'
 import auth from '@/api/auth'
 
@@ -47,7 +47,6 @@ class Home extends Component {
     } catch (e) {
 
     }
-
   }
 
   async getSongList() {
@@ -62,18 +61,17 @@ class Home extends Component {
     }
   }
 
-  async getUserInfo1() {
-    try {
-      const result = await getUserInfo()
-      console.log(result, '---')
-    } catch (e) {
-      console.log(e)
-    }
+  async jumpToSongListDetail(item) {
+    Taro.navigateTo({
+      url: `/pages/songList/songList?id=${item.id}`
+    })
+    // const result = await getSongDetail({ id: item.id })
+    // console.log(result, '-xxx')
   }
+
   render() {
     const { bannerList, songList, iconList } = this.state
     if (!bannerList) return null
-    console.log(songList, '----xxxx---')
     return (
       <View className='home'>
         <View className='swiper'>
@@ -141,6 +139,7 @@ class Home extends Component {
                 <View
                   className='item'
                   key={item.id}
+                  onClick={() => this.jumpToSongListDetail(item)}
                 >
                   <View className='img'>
                     <Image

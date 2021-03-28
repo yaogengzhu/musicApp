@@ -1,0 +1,51 @@
+.songList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .content {
+    flex: 1;
+    overflow-y: scroll;
+
+    .header {
+      display: flex;
+      width: 100%;
+      height: 350rpx;
+      background-color: rgba($color: #000000, $alpha: 0.1);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      border-bottom-left-radius: 10rpx;
+      border-bottom-right-radius: 10rpx;
+      padding: 40rpx;
+
+      .avatar {
+        margin-right: 40rpx;
+        flex-shrink: 0;
+        width: 240rpx;
+        height: 240rpx;
+
+        > Image {
+          width: 100%;
+          height: 100%;
+          border-radius: 20rpx;
+          background-color: palegoldenrod;
+        }
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        justify-content: space-between;
+        height: 240rpx;
+
+        .title {
+          font-size: 40rpx;
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

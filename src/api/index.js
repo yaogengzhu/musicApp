@@ -4,6 +4,9 @@ import Taro from '@tarojs/taro'
 class Fetch {
   music(option) {
     return new Promise((resolve, reject) => {
+      Taro.showLoading({
+        title: '加载中'
+      })
       Taro.request({
         url: 'https://yaogeng.top' + option.url,
         data: Object.assign(option.params || {}, {
@@ -17,12 +20,17 @@ class Fetch {
         return resolve(res.data)
       }).catch(err => {
         return reject(err)
+      }).finally(() => {
+        Taro.hideLoading()
       })
     })
   }
 
   joke(option) {
     return new Promise((resolve, reject) => {
+      Taro.showLoading({
+        title: '加载中'
+      })
       Taro.request({
         url: 'https://www.mxnzp.com' + option.url,
         data: Object.assign(option.params || {}, {
@@ -37,6 +45,8 @@ class Fetch {
         return resolve(res)
       }).catch(err => {
         return reject(err)
+      }).finally(() => {
+        Taro.hideLoading()
       })
     })
   }
