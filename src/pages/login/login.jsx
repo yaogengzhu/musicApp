@@ -18,7 +18,7 @@ const Login = () => {
         Taro.setStorageSync('token', res.token)
         Taro.setStorageSync('cookie', res.cookie)
       } catch (e) {
-        console.log(e, 'e')
+
       }
     }
   }
