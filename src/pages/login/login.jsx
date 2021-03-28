@@ -11,6 +11,7 @@ const Login = () => {
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
 
+  // 修复
   const onSubmit = async () => {
     if (phone && password) {
       fetch.music({
