@@ -4,7 +4,8 @@ export default {
     'pages/search/search',
     'pages/person/person',
     'pages/login/login',
-    'pages/funny/funny'
+    'pages/funny/funny',
+    'pages/songList/songList', // 歌单
   ],
   tabBar: {
     "list": [{

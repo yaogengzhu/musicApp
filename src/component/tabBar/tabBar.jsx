@@ -11,7 +11,7 @@ const TabBar = (props) => {
   const { value } = props
   const [current, setCurrent] = useState(value)
 
-  const handleClick = (value) => {
+  const handleClick = () => {
     setCurrent(value)
     console.log(value, 'value')
     switch (value) {

@@ -14,6 +14,17 @@ export function getBanner() {
   })
 }
 
+/**
+ * 
+ * @returns 获取首页图标icon
+ */
+export function getHomePageIcon() {
+  const url = '/homepage/dragon/ball'
+  return fetch.music({
+    url
+  })
+}
+
 
 /**
  * 推荐歌单
@@ -26,12 +37,12 @@ export function getPersonalized() {
 }
 
 /**
- * 
- * @returns 获取首页图标icon
+ *  获取歌单详情
  */
-export function getHomePageIcon() {
-  const url = '/homepage/dragon/ball'
+export function getSongDetail(params) {
+  const url = '/playlist/detail'
   return fetch.music({
-    url
+    url,
+    params
   })
 }
