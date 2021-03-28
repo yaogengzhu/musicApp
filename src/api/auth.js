@@ -10,7 +10,6 @@ class Auth {
         url: '/pages/login/login'
       })
     }
-    return true
   }
 }
 
