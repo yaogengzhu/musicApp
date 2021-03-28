@@ -17,13 +17,16 @@ class Home extends Component {
     }
   }
   componentDidMount() {
-    this.getBanner()
-    this.getSongList()
-    this.getHomeIcon()
+
   }
 
   componentDidShow() {
-    auth.checkoutLogin()
+    const flag = auth.checkoutLogin()
+    if (flag) {
+      this.getBanner()
+      this.getSongList()
+      this.getHomeIcon()
+    }
   }
 
   async getBanner() {

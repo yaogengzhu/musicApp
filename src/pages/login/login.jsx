@@ -13,35 +13,30 @@ const Login = () => {
 
   const onSubmit = async () => {
     if (phone && password) {
-      try {
-        const res = await loign()
+      fetch.music({
+        url: '/login/cellphone',
+        params: {
+          phone,
+          password
+        }
+      }).then(res => {
         Taro.setStorageSync('token', res.token)
         Taro.setStorageSync('cookie', res.cookie)
-      } catch (e) {
-
-      }
+        Taro.showToast({
+          title: '登陆成功',
+          icon: 'success',
+          duration: 2000,
+          success: () => {
+            Taro.navigateBack()
+          }
+        })
+      })
     }
   }
 
-  const loign = () => {
-    return fetch.music({
-      url: '/login/cellphone',
-      params: {
-        phone,
-        password
-      }
-    }).then((res) => {
-      Taro.showToast({
-        title: '登陆成功',
-        icon: 'success',
-        duration: 2000,
-        success: () => {
-          Taro.navigateBack()
-        }
-      })
-      return res
-    })
-  }
+  // const loign = () => {
+  //   return 
+  // }
 
   useEffect(() => {
   }, [])
