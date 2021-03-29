@@ -3,7 +3,6 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtList, AtListItem, AtAvatar } from "taro-ui"
 import { getUserInfo } from '@/api/user'
-import { getAddress } from '@/utils/area'
 
 import './person.scss'
 
@@ -17,8 +16,6 @@ const Person = () => {
   const getaccountInfo = async () => {
     const result = await getUserInfo()
     setProfile(result.profile)
-    const address = getAddress(420000, 420500)
-    console.log(address)
   }
 
   if (!profile) return null
