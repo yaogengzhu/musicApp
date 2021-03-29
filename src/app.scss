@@ -32,3 +32,9 @@ page {
 .color-999 {
   color: #666;
 }
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
