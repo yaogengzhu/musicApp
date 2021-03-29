@@ -32,11 +32,11 @@ export default {
     borderStyle: 'white',
     color: '#ffffff',
     selectedColor: '#fed71a', // 佛手黄
-    backgroundColor: '#5698c3' // 蝶翅蓝
+    backgroundColor: '#d43c33' // 蝶翅蓝 #5698c3
   },
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#5698c3',
+    navigationBarBackgroundColor: '#d43c33',
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'white'
   }

@@ -6,6 +6,8 @@ import { getBanner, getPersonalized, getHomePageIcon } from '@/api/common'
 import auth from '@/api/auth'
 
 import './home.scss'
+import MusicCalendarItem from './modules/musicCalenderItem'
+
 
 class Home extends Component {
   constructor(props) {
@@ -65,8 +67,6 @@ class Home extends Component {
     Taro.navigateTo({
       url: `/pages/songList/songList?id=${item.id}`
     })
-    // const result = await getSongDetail({ id: item.id })
-    // console.log(result, '-xxx')
   }
 
   render() {
@@ -155,6 +155,8 @@ class Home extends Component {
             }
           </View>
         </ScrollView>
+        <View className='space'></View>
+        <MusicCalendarItem />
       </View>
     )
   }

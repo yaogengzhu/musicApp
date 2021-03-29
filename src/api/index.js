@@ -16,21 +16,23 @@ class Fetch {
           'content-type': 'application/json', // 默认值
           'cookie': Taro.getStorageSync('cookie') ? Taro.getStorageSync('cookie') : undefined
         },
-        method: option.mehtods || 'GET'
-      }).then(res => {
-        Taro.hideLoading()
-        if (res.data.code === 200) {
-          return resolve(res.data)
-        }
-        if (res.data.code === 400) {
-          return openMessage('none', '参数异常')
-        }
-        openMessage('none', res.data.message)
+        method: option.mehtods || 'GET',
+        success: (res) => {
+          Taro.hideLoading()
 
-      }).catch(err => {
-        Taro.hideLoading()
-        openMessage('none', err)
-        return reject(err)
+          if (res.data.code === 200) {
+            return resolve(res.data)
+          }
+          if (res.data.code === 400) {
+            return openMessage('none', '参数异常')
+          }
+          openMessage('none', res.data.message || '接口异常')
+        },
+        fail: (err) => {
+          Taro.hideLoading()
+          openMessage('none', err)
+          return reject(err)
+        }
       })
     })
   }
@@ -49,13 +51,15 @@ class Fetch {
         header: {
           'content-type': 'application/json', // 默认
         },
-        method: option.mehtods || 'GET'
-      }).then(res => {
-        Taro.hideLoading()
-        return resolve(res)
-      }).catch(err => {
-        Taro.hideLoading()
-        return reject(err)
+        method: option.mehtods || 'GET',
+        success: (res) => {
+          Taro.hideLoading()
+          return resolve(res)
+        },
+        fail: (err) => {
+          Taro.hideLoading()
+          return reject(err)
+        }
       })
     })
   }

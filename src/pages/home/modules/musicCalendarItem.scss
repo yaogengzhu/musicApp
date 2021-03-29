@@ -1,0 +1,60 @@
+.music-calendar-item {
+  .itme-one {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20rpx;
+    width: 100%;
+    height: 100rpx;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    // background-color: palevioletred;
+    color: #000;
+    font-weight: bold;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.05);
+  }
+
+  .item-list {
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 160rpx;
+    box-sizing: border-box;
+
+    .info {
+      overflow: hidden;
+
+      .tip {
+        font-size: 28rpx;
+        color: #999;
+        font-weight: 400;
+
+        .symbol {
+          margin-left: 10rpx;
+          font-size: 22rpx;
+          display: inline-block;
+          padding: 4rpx;
+          color: #fed71a;
+          border-radius: 4rpx;
+          background-color: rgb(250, 239, 225);
+        }
+      }
+    }
+
+    .img-icon {
+      margin-left: 20rpx;
+      flex-shrink: 0;
+      width: 80rpx;
+      height: 80rpx;
+      border-radius: 10rpx;
+
+      > Image {
+        width: 100%;
+        height: 100%;
+        border-radius: 10rpx;
+      }
+    }
+  }
+}
