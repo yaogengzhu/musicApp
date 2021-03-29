@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtButton, AtInput } from 'taro-ui'
+import { AtButton, AtInput, AtMessage } from 'taro-ui'
 import { connect } from 'react-redux'
+import { openMessage } from '@/utils/system'
 import fetch from '@/api/index'
 
 import './login.scss'
@@ -14,41 +15,28 @@ const Login = () => {
   // 修复
   const onSubmit = async () => {
     if (phone && password) {
-      try {
-        const res = await loign()
+      fetch.music({
+        url: '/login/cellphone',
+        params: {
+          phone,
+          password
+        }
+      }).then(res => {
+
         Taro.setStorageSync('token', res.token)
         Taro.setStorageSync('cookie', res.cookie)
-      } catch (e) {
-
-      }
+        openMessage('success', '登陆成功', {
+          success: () => {
+            Taro.navigateBack()
+          }
+        })
+      })
     }
   }
 
-  const loign = () => {
-    return fetch.music({
-      url: '/login/cellphone',
-      params: {
-        phone,
-        password
-      }
-    }).then((res) => {
-      Taro.showToast({
-        title: '登陆成功',
-        icon: 'success',
-        duration: 2000,
-        success: () => {
-          Taro.navigateBack()
-        }
-      })
-      return res
-    })
-  }
-
-  useEffect(() => {
-  }, [])
-
   return (
     <View className='login'>
+      <AtMessage />
       <AtInput
         name='phone'
         className='input'
