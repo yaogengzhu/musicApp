@@ -12,7 +12,6 @@ const SongList = () => {
   const [songInfo, setSongInfo] = useState()
 
   useEffect(() => {
-    // console.log(Taro.getCurrentInstance().router)
     const id = Taro.getCurrentInstance().router.params.id
     if (id) {
       getSongListDetail(id)

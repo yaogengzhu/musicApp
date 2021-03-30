@@ -6,6 +6,7 @@ export default {
     'pages/login/login',
     'pages/funny/funny',
     'pages/songList/songList', // 歌单
+    'pages/recommendResource/recommendResource', // 每日推荐歌单
   ],
   tabBar: {
     "list": [{

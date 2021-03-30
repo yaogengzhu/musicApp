@@ -69,6 +69,15 @@ class Home extends Component {
     })
   }
 
+  cliclRecommend(item) {
+    if (item.name === '每日推荐') {
+      Taro.navigateTo({
+        url: '/pages/recommendResource/recommendResource'
+      })
+    }
+    // console.log(item)
+  }
+
   render() {
     const { bannerList, songList, iconList } = this.state
     if (!bannerList) return null
@@ -111,6 +120,7 @@ class Home extends Component {
                 <View
                   key={item.id}
                   className='item'
+                  onClick={() => this.cliclRecommend(item)}
                 >
                   <View className='icon-bg'>
                     <Image
