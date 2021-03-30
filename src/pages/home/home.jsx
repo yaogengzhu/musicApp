@@ -18,7 +18,7 @@ class Home extends Component {
       bannerList: [],
       songList: [],
       iconList: [],
-      currentId: '',
+      songInfo: null,
     }
   }
   componentDidMount() {
@@ -27,7 +27,7 @@ class Home extends Component {
       this.getBanner()
       this.getSongList()
       this.getHomeIcon()
-      this.getUserCurrnetMusicId()
+      this.getUserCurrnetSong()
     }
   }
 
@@ -76,13 +76,13 @@ class Home extends Component {
     })
   }
 
-  async getUserCurrnetMusicId() {
+  async getUserCurrnetSong() {
     try {
       const result = await getUserPlayRecord()
       const { weekData } = result
       if (weekData && weekData.length > 0) {
         this.setState({
-          currentId: weekData[0].song.id
+          songInfo: weekData[0].song
         })
       }
 
@@ -101,7 +101,7 @@ class Home extends Component {
   }
 
   render() {
-    const { bannerList, songList, iconList, currentId } = this.state
+    const { bannerList, songList, iconList, songInfo } = this.state
 
     if (!bannerList) return null
     return (
@@ -192,7 +192,7 @@ class Home extends Component {
           <View className='space'></View>
           <MusicCalendarItem />
         </View>
-        <MusicPlay id={currentId} />
+        {/* <MusicPlay songInfo={songInfo} /> */}
       </View>
     )
   }

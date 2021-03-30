@@ -1,5 +1,43 @@
 .music-paly-comp {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 100rpx;
-  background-color: #fff;
+  // background-color: pink;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  box-shadow: 0 4prx 20rpx rgba(0, 0, 0, 0.1);
+
+  .info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+
+    .img {
+      width: 80rpx;
+      height: 80rpx;
+      border-radius: 50%;
+      // background-color: aqua;
+      overflow: hidden;
+
+      > Image {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        overflow: hidden;
+      }
+    }
+
+    .title {
+      margin-left: 20rpx;
+      color: #333;
+    }
+  }
+  .palyIcon {
+    width: 60rpx;
+    flex-shrink: 0;
+  }
 }
