@@ -1,128 +1,134 @@
 .home {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: scroll;
 
-  .swiper {
-    margin: 0 20rpx;
-    border-radius: 10rpx;
-    overflow: hidden;
-    box-sizing: border-box;
-
-    .imgBox {
-      width: 100%;
-      height: 100%;
+  .content {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    .swiper {
+      margin: 0 20rpx;
+      border-radius: 10rpx;
       overflow: hidden;
+      box-sizing: border-box;
 
-      .banner {
-        height: 100%;
+      .imgBox {
         width: 100%;
-        object-fit: cover;
+        height: 100%;
+        overflow: hidden;
+
+        .banner {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
       }
     }
-  }
 
-  .menu {
-    display: flex;
-    margin-top: 20rpx;
-    width: 100%;
-    height: 160rpx;
-    // padding: 0 10px;
-    // background-color: red;
-
-    .item {
+    .menu {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 160rpx;
+      margin-top: 20rpx;
+      width: 100%;
       height: 160rpx;
-      flex-shrink: 0;
+      // padding: 0 10px;
+      // background-color: red;
 
-      .icon-bg {
+      .item {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 160rpx;
+        height: 160rpx;
+        flex-shrink: 0;
+
+        .icon-bg {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+          width: 80rpx;
+          height: 80rpx;
+          border-radius: 50%;
+          background-color: rgba($color: #df3436, $alpha: 0.8);
+
+          > Image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10rpx;
+          }
+        }
+        .tip {
+          font-size: 24rpx;
+          color: #444;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .line {
+      margin-top: 20rpx;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .block1 {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 80rpx;
+      font-weight: bold;
+      margin-left: 20rpx;
+    }
+
+    .songlist {
+      display: flex;
+      width: 100%;
+      height: 270rpx;
+
+      .item {
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        width: 80rpx;
-        height: 80rpx;
-        border-radius: 50%;
-        background-color: rgba($color: #df3436, $alpha: 0.8);
+        width: 260rpx;
+        height: 260rpx;
+        flex-shrink: 0;
 
-        > Image {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-          border-radius: 10rpx;
+        .img {
+          margin-bottom: 20rpx;
+          width: 170rpx;
+          height: 170rpx;
+          // background-color: gray;
+
+          > Image {
+            width: 100%;
+            height: 100%;
+            border-radius: 10rpx;
+            object-fit: cover;
+          }
+        }
+
+        .text {
+          height: 75rpx;
+          padding: 0 20rpx;
+          font-size: 24rpx;
+          color: #333;
         }
       }
-      .tip {
-        font-size: 24rpx;
-        color: #444;
-        font-weight: 400;
-      }
     }
-  }
 
-  .line {
-    margin-top: 20rpx;
-    width: 100%;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  .block1 {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 80rpx;
-    font-weight: bold;
-    margin-left: 20rpx;
-  }
-
-  .songlist {
-    display: flex;
-    width: 100%;
-    height: 270rpx;
-
-    .item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 260rpx;
-      height: 260rpx;
-      flex-shrink: 0;
-
-      .img {
-        margin-bottom: 20rpx;
-        width: 170rpx;
-        height: 170rpx;
-        // background-color: gray;
-
-        > Image {
-          width: 100%;
-          height: 100%;
-          border-radius: 10rpx;
-          object-fit: cover;
-        }
-      }
-
-      .text {
-        height: 75rpx;
-        padding: 0 20rpx;
-        font-size: 24rpx;
-        color: #333;
-      }
+    .space {
+      width: 100%;
+      height: 20rpx;
+      background-color: #f7f7f7;
     }
-  }
-
-  .space {
-    width: 100%;
-    height: 20rpx;
-    background-color: #f7f7f7;
   }
 }
