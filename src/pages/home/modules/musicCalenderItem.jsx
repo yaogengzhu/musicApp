@@ -1,6 +1,6 @@
 import { View, Image, Text } from '@tarojs/components'
 import React, { useEffect, useState } from 'react'
-import { getCalendar } from '@/api/music-calendar'
+import { getCalendar } from '@/api/music'
 import dayjs from 'dayjs'
 
 import './musicCalendarItem.scss'
@@ -20,7 +20,6 @@ const MusicCalendarItem = () => {
         startTime: dayjs().valueOf(),
         endTime: dayjs().add(1, 'day').valueOf()
       })
-      console.log(result.data.calendarEvents)
       setList(result.data.calendarEvents)
     } catch (e) {
       console.log(e)

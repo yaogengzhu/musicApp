@@ -8,6 +8,7 @@ export default {
     'pages/songList/songList', // 歌单
     'pages/recommendResource/recommendResource', // 每日推荐歌单
   ],
+  "requiredBackgroundModes": ["audio", "location"],
   tabBar: {
     "list": [{
       "pagePath": "pages/home/home",

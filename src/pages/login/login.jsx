@@ -3,17 +3,21 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtButton, AtInput, AtMessage } from 'taro-ui'
 import { connect } from 'react-redux'
+import { UPDATE_USER } from '@/store/actionType'
 import { openMessage } from '@/utils/system'
 import fetch from '@/api/index'
 
+
 import './login.scss'
 
-const Login = () => {
+const Login = (props) => {
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
 
   // 修复
   const onSubmit = async () => {
+    const { dispatch } = props
+    console.log(dispatch, 'dispach')
     if (phone && password) {
       fetch.music({
         url: '/login/cellphone',
@@ -22,9 +26,16 @@ const Login = () => {
           password
         }
       }).then(res => {
-
+        // 将基本的数据直接存入本地
         Taro.setStorageSync('token', res.token)
         Taro.setStorageSync('cookie', res.cookie)
+        Taro.setStorageSync('uid', res.account.id)
+        console.log(res, 'res')
+        dispatch({
+          type: UPDATE_USER,
+          account: res.account,
+          profile: res.profile
+        })
         openMessage('success', '登陆成功', {
           success: () => {
             Taro.navigateBack()
