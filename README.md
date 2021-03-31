@@ -120,6 +120,9 @@
 - [x] redux封装
 
 ## 基本页面展示 （将持续开发中、有兴趣的一起加入)
+![](https://user-images.githubusercontent.com/42566669/113119732-59ae6e80-9243-11eb-93ff-27f3113c8c3a.jpeg)
+![](https://user-images.githubusercontent.com/42566669/113119862-7fd40e80-9243-11eb-8732-779091b516f1.jpeg)
+
 <image src='https://user-images.githubusercontent.com/42566669/113119732-59ae6e80-9243-11eb-93ff-27f3113c8c3a.jpeg' width="300"  alt='登陆' />
 <image src='https://user-images.githubusercontent.com/42566669/113119862-7fd40e80-9243-11eb-8732-779091b516f1.jpeg' width="300" alt='首页' />
 <image src='https://user-images.githubusercontent.com/42566669/113119996-aabe6280-9243-11eb-9206-812916b1a629.jpeg' width="300" alt='我的' />
