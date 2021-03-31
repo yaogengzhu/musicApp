@@ -8,7 +8,14 @@ page {
     flex-direction: column;
     display: flex;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
+
+    .logo {
+      margin-top: 140rpx;
+      width: 200rpx;
+      height: 200rpx;
+      margin-bottom: 30rpx;
+    }
 
     .button {
       margin-top: 50px;

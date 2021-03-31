@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 import { AtButton, AtInput, AtMessage } from 'taro-ui'
 import { connect } from 'react-redux'
 import { UPDATE_USER } from '@/store/actionType'
 import { openMessage } from '@/utils/system'
 import fetch from '@/api/index'
+import Logo from '@/assets/images/logo.png'
 
 
 import './login.scss'
@@ -47,7 +48,7 @@ const Login = (props) => {
 
   return (
     <View className='login'>
-      <AtMessage />
+      <Image src={Logo} className='logo' />
       <AtInput
         name='phone'
         className='input'
