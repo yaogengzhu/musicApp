@@ -2,6 +2,7 @@ import { View, Image, Text } from '@tarojs/components'
 import React, { useEffect, useState } from 'react'
 import { getCalendar } from '@/api/music'
 import dayjs from 'dayjs'
+import auth from '@/api/auth'
 
 import './musicCalendarItem.scss'
 
@@ -10,7 +11,10 @@ const MusicCalendarItem = () => {
   const [list, setList] = useState()
 
   useEffect(() => {
-    getList()
+    if (auth.checkoutToke()) {
+      getList()
+    }
+
   }, [])
 
 

@@ -58,7 +58,6 @@ export async function getUserPlayRecord(params = {}) {
       type: 1
     }, params)
   }).then((res) => {
-    console.log(res, 'res----xxx')
     dispatch({
       type: MUSIC_RECORD,
       weekData: res.weekData

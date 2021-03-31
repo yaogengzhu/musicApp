@@ -22,17 +22,18 @@ class Home extends Component {
     }
   }
   componentDidMount() {
-    console.log(auth.checkoutToke())
     if (auth.checkoutToke()) {
       this.getBanner()
       this.getSongList()
       this.getHomeIcon()
-      this.getUserCurrnetSong()
     }
   }
 
   componentDidShow() {
     auth.checkoutLogin()
+    if (auth.checkoutToke()) {
+      this.getUserCurrnetSong()
+    }
   }
 
   async getBanner() {
@@ -42,14 +43,12 @@ class Home extends Component {
         bannerList: result.banners
       })
     } catch (e) {
-      // console.log(e, 'e')
     }
   }
 
   async getHomeIcon() {
     try {
       const result = await getHomePageIcon()
-      // console.log(result, '0-0-0')
       this.setState({
         iconList: result.data
       })
@@ -80,9 +79,10 @@ class Home extends Component {
     try {
       const result = await getUserPlayRecord()
       const { weekData } = result
+      console.log(weekData.slice(-1), 'xx')
       if (weekData && weekData.length > 0) {
         this.setState({
-          songInfo: weekData[0].song
+          songInfo: weekData.slice(-1)[0].song
         })
       }
 
@@ -97,7 +97,6 @@ class Home extends Component {
         url: '/pages/recommendResource/recommendResource'
       })
     }
-    // console.log(item)
   }
 
   render() {
@@ -192,7 +191,7 @@ class Home extends Component {
           <View className='space'></View>
           <MusicCalendarItem />
         </View>
-        {/* <MusicPlay songInfo={songInfo} /> */}
+        <MusicPlay songInfo={songInfo} />
       </View>
     )
   }

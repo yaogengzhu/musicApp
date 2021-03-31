@@ -2,16 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { getRecommendResource, getSongUrl } from '@/api/music'
+import MusicPlay from '@/component/musicPlay/musicPlay'
+import { connect } from 'react-redux'
+import MusicItem from '@/component/musicItem/musicItem'
 
-const audioContext = Taro.getBackgroundAudioManager()
+import './recommendResource.scss'
 
 
-const RecommendResource = () => {
+const RecommendResource = (props) => {
+  const { weekData } = props
   const [list, setList] = useState()
+  const [songInfo, setSongInfo] = useState(weekData.slice(-1)[0].song)
 
   useEffect(() => {
     getSongResource()
   }, [])
+
   const getSongResource = async () => {
     try {
       const result = await getRecommendResource()
@@ -22,33 +28,32 @@ const RecommendResource = () => {
     }
   }
 
-  const getMusicUrl = async (id) => {
-    try {
-      // return 'https://music.163.com/#/song?id=1431915032'
-      const result = await getSongUrl({ id })
-      console.log(result.data[0].url, '---xxx-')
-      console.log(audioContext, 'audioContext')
-      audioContext.src = result.data[0].url
-      audioContext.title = 'test'
-      audioContext.play()
-    } catch (e) {
-      //
-    }
-  }
-
   useEffect(() => {
-    if (list && list.length > 0) {
-      const id = list[0].id
-      console.log(id)
-      getMusicUrl(id)
-    }
+
   }, [list])
 
+  if (!list) return null
   return (
-    <View>
-      <View>歌单</View>
+    <View className='recommendResourcePage'>
+      <View className='content'>
+        {
+          list.map(item => (
+            <MusicItem
+              key={item.id}
+              songInfo={item}
+              onChange={(song) => {
+                console.log(song)
+                setSongInfo(song)
+              }}
+            />
+          ))
+        }
+      </View>
+      <MusicPlay songInfo={songInfo} />
     </View>
   )
 }
 
-export default RecommendResource
+export default connect((state) => ({
+  ...state.music
+}))(RecommendResource)
