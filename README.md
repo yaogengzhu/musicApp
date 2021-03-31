@@ -1,5 +1,25 @@
 # 仿写网易云音乐基础版
 技术选型：tarojs、taro-ui、redux、
+
+## 技术要点
+- [x] `tarojs`
+- [x] `trro-ui`
+- [x] `react`
+- [x] `redux` `redux-redux`
+
+## 小程序线上体验码
+**注** 开发中，目前是简单的基础架构、可使用网易云账号进行登陆。
+
+
+## 后台服务
+后台服务是基于 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi) 提供接口，部署在阿里云上。采用node + nginx部署，有兴趣的可以自行了解。
+
+### 体验码
+线上码
+<image src='https://user-images.githubusercontent.com/42566669/113113755-354f9380-923d-11eb-87c8-f5c07fccc119.jpg' width="300"  />
+个人微信
+<image src='https://user-images.githubusercontent.com/42566669/113114192-aabb6400-923d-11eb-9927-16be9bab5cfb.jpeg' width="250" />
+
 ## 项目的初始化
 具体参考[tarojs文档](!https://taro-docs.jd.com/taro/docs/README)
 ### cli工具安装
