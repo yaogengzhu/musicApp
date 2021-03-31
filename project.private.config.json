@@ -23,6 +23,12 @@
           "pathName": "pages/songList/songList",
           "query": "id=5042045636",
           "scene": null
+        },
+        {
+          "name": "pages/recommendResource/recommendResource",
+          "pathName": "pages/recommendResource/recommendResource",
+          "query": "id=5042045636",
+          "scene": null
         }
       ]
     }
