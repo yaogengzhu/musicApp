@@ -7,6 +7,7 @@ export default {
     'pages/funny/funny',
     'pages/songList/songList', // 歌单
     'pages/recommendResource/recommendResource', // 每日推荐歌单
+    'pages/test/test'
   ],
   "requiredBackgroundModes": ["audio", "location"],
   tabBar: {

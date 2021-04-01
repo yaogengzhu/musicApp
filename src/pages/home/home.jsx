@@ -93,10 +93,15 @@ class Home extends Component {
 
   cliclRecommend(item) {
     if (item.name === '每日推荐') {
-      Taro.navigateTo({
+      return Taro.navigateTo({
         url: '/pages/recommendResource/recommendResource'
       })
     }
+
+    Taro.navigateTo({
+      url: '/pages/test/test'
+    })
+
   }
 
   render() {
