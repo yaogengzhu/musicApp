@@ -29,6 +29,11 @@
           "pathName": "pages/recommendResource/recommendResource",
           "query": "id=5042045636",
           "scene": null
+        },
+        {
+          "name": "pages/paly",
+          "pathName": "pages/paly/paly",
+          "scene": null
         }
       ]
     }
