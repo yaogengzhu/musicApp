@@ -31,10 +31,10 @@ const MusicItem = (props) => {
         </View>
       </View>
       <View className='right-icon'>
-        <AtIcon
+        {/* <AtIcon
           value='menu'
           size='30'
-        />
+        /> */}
       </View>
     </View>
   )

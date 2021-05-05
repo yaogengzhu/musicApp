@@ -42,14 +42,13 @@ const RecommendResource = (props) => {
               key={item.id}
               songInfo={item}
               onChange={(song) => {
-                console.log(song)
                 setSongInfo(song)
               }}
             />
           ))
         }
       </View>
-      <MusicPlay songInfo={songInfo} />
+      {/* <MusicPlay songInfo={songInfo} /> */}
     </View>
   )
 }

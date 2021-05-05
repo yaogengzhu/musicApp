@@ -2,11 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
-
 import { getSongDetail } from '@/api/common'
-
 import './songList.scss'
-
 const SongList = () => {
 
   const [songInfo, setSongInfo] = useState()
