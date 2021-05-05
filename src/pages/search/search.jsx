@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Taro from '@tarojs/taro'
-import { View, Image, ScrollView } from '@tarojs/components'
+import { View, Image, ScrollView, Button } from '@tarojs/components'
 import { AtCard } from "taro-ui"
 import fetch from '@/api'
 
@@ -10,7 +10,7 @@ class Search extends Component {
     this.state = {
       imgList: [],
       page: 1,
-      hasMore: false
+      hasMore: false,
     }
   }
 
@@ -58,6 +58,30 @@ class Search extends Component {
     }
   }
 
+  toShare = async (url) => {
+    Taro.downloadFile({
+      url,
+      success: (res) => {
+        console.log(res.tempFilePath)
+      }
+    })
+  }
+
+  async onShareAppMessage() {
+    return {
+      title: '我是分享标题～好不好看～',
+      path: '',
+      imageUrl: '', // 生成的分享图赋值给到小程序自定义分享图链接
+      success: function () {
+        // 转发成功
+      },
+      fail: function () {
+        // 转发失败
+        console.log('转发失败')
+      }
+    }
+  }
+
   render() {
     const { imgList, hasMore } = this.state
     if (!imgList) return null
@@ -72,6 +96,16 @@ class Search extends Component {
                 <AtCard
                   customStyle={{ display: 'felx', justifyContent: 'center' }}
                   title={'图片尺寸 - ' + item.imageSize}
+                  note={<Button
+                    className='share-btn'
+                    open-type='share'
+                    style={{ display: 'flex', justifyContent: 'center'}} onClick={(e) => {
+                        e.stopPropagation()
+                        this.toShare(item.imageUrl)
+                  }}
+                  >
+                    一键分享
+                  </Button>}
                   onClick={() => {
                     Taro.previewImage({
                       urls: imgs,
