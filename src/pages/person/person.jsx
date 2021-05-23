@@ -32,7 +32,7 @@ const Person = () => {
         customStyle={{ boxSizing: 'border-box' }}
       >
         <AtListItem title='昵称' extraText={profile.nickname} />
-        {/* <AtListItem title='地址' /> */}
+        <AtListItem title='手机号'extraText={profile.shortUserName} />
         <AtListItem title='性别' extraText={profile.gender ? '男' : '女'} />
       </AtList>
     </View>

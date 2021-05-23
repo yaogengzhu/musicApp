@@ -29,6 +29,12 @@
           "pathName": "pages/recommendResource/recommendResource",
           "query": "id=5042045636",
           "scene": null
+        },
+        {
+          "name": "评论",
+          "pathName": "pages/musicRemark/musicRemark",
+          "query": "id=186016",
+          "scene": null
         }
       ]
     }
