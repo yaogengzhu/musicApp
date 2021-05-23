@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { getRecommendResource, getSongUrl } from '@/api/music'
-import MusicPlay from '@/component/musicPlay/musicPlay'
+// import MusicPlay from '@/component/musicPlay/musicPlay'
 import { connect } from 'react-redux'
 import MusicItem from '@/component/musicItem/musicItem'
 
@@ -10,9 +10,9 @@ import './recommendResource.scss'
 
 
 const RecommendResource = (props) => {
-  const { weekData } = props
+  // const { weekData } = props
   const [list, setList] = useState()
-  const [songInfo, setSongInfo] = useState(weekData.slice(-1)[0].song)
+  // const [songInfo, setSongInfo] = useState(weekData.slice(-1)[0].song)
 
   useEffect(() => {
     getSongResource()
@@ -41,8 +41,11 @@ const RecommendResource = (props) => {
             <MusicItem
               key={item.id}
               songInfo={item}
-              onChange={(song) => {
-                setSongInfo(song)
+              onChange={() => {
+                // setSongInfo(song)
+                Taro.navigateTo({
+                  url: `/pages/musicRemark/musicRemark?id=${item.id}`
+                })
               }}
             />
           ))
