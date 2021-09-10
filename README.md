@@ -10,12 +10,9 @@
 **注** 开发中，目前是简单的基础架构、可使用网易云账号进行登陆。
 
 ### 体验码
-> 有啥问题，可以加我私人微信，一起学习进步！这个项目较大，也可以一起参与开发学习，小程序开发的经验不是很足，开发一个小程序demo，帮助自己学习，同时也希望帮助到正在学习的你。
 
 线上码
 <image src='https://user-images.githubusercontent.com/42566669/113113755-354f9380-923d-11eb-87c8-f5c07fccc119.jpg' width="300"  />
-个人微信
-<image src='https://user-images.githubusercontent.com/42566669/113114192-aabb6400-923d-11eb-9927-16be9bab5cfb.jpeg' width="250" />
 
 ## 后台服务
 后台服务是基于 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi) 提供接口，部署在阿里云上。采用node + nginx部署，有兴趣的可以自行了解。
@@ -219,25 +216,6 @@ export default Person
 ```css
 @import "@/assets/css/module.scss";
 ```
-
-
-## 请求的封装
-待输入
-
-## 引入redux
-待输入
-
-
-## api的封装处理
-待输入
-
-## 登陆、cookie鉴权
-待输入
-
-
-## 全局loading处理
-待输入
-
 
 ## 相关辅助库
 - ahooks
