@@ -9,7 +9,7 @@ class Fetch {
         title: '加载中'
       })
       Taro.request({
-        url: 'https://yaogeng.top' + option.url,
+        url: 'https://api.yaogeng.top' + option.url,
         data: Object.assign(option.params || {}, {
         }),
         header: {
